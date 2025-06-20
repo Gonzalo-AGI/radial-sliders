@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Preguntas Personales</title>
+  <link rel="stylesheet" href="CSS/radial-sliders-personal.css" />
+</head>
+<body>
+  <section class="radial-sliders-wrapper page-container">
+    <h1>Preguntas Personales</h1>
+    <div class="radar-container">
+      <div class="radar-background"></div>
+      <svg class="radar-svg" viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <path id="mainCirclePath" d="M 200,0 A 200,200 0 1,1 199.9,0" fill="none" />
+          <path id="labelPath1" d="M200 -30 A230 230 0 0 1 430 200" />
+          <path id="labelPath2" d="M430 200 A230 230 0 0 1 200 430" />
+          <path id="labelPath3" d="M200 430 A230 230 0 0 1 -30 200" />
+          <path id="labelPath4" d="M-30 200 A230 230 0 0 1 200 -30" />
+        </defs>
+
+        <g class="ticks-group"></g>
+        <polygon class="radar-polygon" points="" />
+
+        <text font-size="14" font-weight="600" fill="#1c1c1e">
+          <textPath href="#labelPath1" startOffset="50%" text-anchor="middle">Mente</textPath>
+        </text>
+        <text font-size="14" font-weight="600" fill="#1c1c1e">
+          <textPath href="#labelPath2" startOffset="50%" text-anchor="middle">Emociones</textPath>
+        </text>
+        <text font-size="14" font-weight="600" fill="#1c1e1e">
+          <textPath href="#labelPath3" startOffset="50%" text-anchor="middle">Cuerpo</textPath>
+        </text>
+        <text font-size="14" font-weight="600" fill="#1c1c1e">
+          <textPath href="#labelPath4" startOffset="50%" text-anchor="middle">Espiritu</textPath>
+        </text>
+      </svg>
+
+      <div class="radial-slider" id="radial1">
+        <input type="range" min="1" max="10" value="10" data-angle="270" id="slider1" oninput="onSliderInput(this)" />
+      </div>
+      <div class="radial-slider" id="radial2">
+        <input type="range" min="1" max="10" value="10" data-angle="0" id="slider2" oninput="onSliderInput(this)" />
+      </div>
+      <div class="radial-slider" id="radial3">
+        <input type="range" min="1" max="10" value="10" data-angle="90" id="slider3" oninput="onSliderInput(this)" />
+      </div>
+      <div class="radial-slider" id="radial4">
+        <input type="range" min="1" max="10" value="10" data-angle="180" id="slider4" oninput="onSliderInput(this)" />
+      </div>
+
+      <div class="custom-thumb" id="thumb1">10</div>
+      <div class="custom-thumb" id="thumb2">10</div>
+      <div class="custom-thumb" id="thumb3">10</div>
+      <div class="custom-thumb" id="thumb4">10</div>
+    </div>
+
+    <div class="skill-list">
+      <div class="skill-item">
+        <label for="linear1">Mente:</label>
+        <input id="linear1" type="range" min="1" max="10" value="10" data-angle="270" oninput="syncFromLinear(this)" />
+        <div class="value-display" id="linearValue1">10</div>
+      </div>
+      <div class="skill-item">
+        <label for="linear2">Emociones:</label>
+        <input id="linear2" type="range" min="1" max="10" value="10" data-angle="0" oninput="syncFromLinear(this)" />
+        <div class="value-display" id="linearValue2">10</div>
+      </div>
+      <div class="skill-item">
+        <label for="linear3">Cuerpo:</label>
+        <input id="linear3" type="range" min="1" max="10" value="10" data-angle="90" oninput="syncFromLinear(this)" />
+        <div class="value-display" id="linearValue3">10</div>
+      </div>
+      <div class="skill-item">
+        <label for="linear4">Espiritu:</label>
+        <input id="linear4" type="range" min="1" max="10" value="10" data-angle="180" oninput="syncFromLinear(this)" />
+        <div class="value-display" id="linearValue4">10</div>
+      </div>
+    </div>
+  </section>
+
+  <script src="JS/radial-sliders-personal.js"></script>
+
+  <div id="highest-score-summary" style="margin-top: 30px; text-align: center; display: flex; justify-content: center;">
+    <div style="font-size: 1.2rem; font-weight: bold;">
+      Mejoremos en: <span id="top-skill-name">—</span> (<span id="top-skill-percent">0%</span>)
+    </div>
+  </div>
+
+  <div id="lowest-skill-card" class="skill-card" style="margin-top: 30px; text-align: center; display: none;">
+    <div id="lowest-skill-title" style="font-size: 1.2rem; font-weight: bold; margin-bottom: 12px;"></div>
+    <ul id="lowest-skill-bullets" style="list-style-type: disc; padding-left: 20px; text-align: left; max-width: 400px; margin: 0 auto;"></ul>
+  </div>
+</body>
+</html>
